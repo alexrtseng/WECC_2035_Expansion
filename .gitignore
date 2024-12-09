@@ -1,0 +1,41 @@
+# Ignore Julia compiled files
+*.ji
+
+# Ignore Julia REPL history file
+.julia_history
+
+# Ignore Julia package environments
+Manifest.toml
+Project.toml
+
+# Ignore temporary files and directories
+*.tmp
+*.log
+*.bak
+*.swp
+*.DS_Store
+
+# Ignore results and output directories
+results/
+output/
+
+# Ignore data files
+WECC_6zone_2035/
+WECC_6zone_2050/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore MacOS specific files
+.DS_Store
+
+# Ignore Python virtual environments
+venv/
+__pycache__/
+
+# Ignore any other temporary or build files
+build/
+tmp/
