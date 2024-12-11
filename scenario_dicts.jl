@@ -29,8 +29,8 @@ conservative = Dict(
     "cap_trade_values" => [40 * 10^6, 11.2 * 10^6]
 )
 
-aggressive_linked_cap_trade = Dict(
-    "name" => "aggressive_linked_cap_trade",
+linked_cap_trade = Dict(
+    "name" => "linked_cap_trade",
     "carbon_tax_values" => [-1, -1, -1, -1, -1, -1],
     "rps_values" => [0.6, 0.6, 0.5, 0.15, 0.5, 0.3],
     "ces_values" => [0.9, 0.9, -1, 0.5, 0.6, 0.85],
@@ -158,7 +158,7 @@ linked_cap_trade_100 = Dict(
     "itc_values" => [0, 0, 0, 0, 0, 0],
     "ptc_values" => [0, 0, 0, 0, 0, 0],
     "cap_trade_clusters" => [[1, 2, 3, 4, 5, 6]],
-    "cap_trade_values" => [(z1 + z2 + z3 + z4 + z5 + z6)] 
+    "cap_trade_values" => [0] 
 )
 
 unlinked_cap_trade_100 = Dict(
@@ -169,7 +169,7 @@ unlinked_cap_trade_100 = Dict(
     "itc_values" => [0, 0, 0, 0, 0, 0],
     "ptc_values" => [0, 0, 0, 0, 0, 0],
     "cap_trade_clusters" => [[1], [2], [3], [4], [5], [6]],
-    "cap_trade_values" => [z1, z2, z3, z4, z5, z6] 
+    "cap_trade_values" => [0,0,0,0,0,0] 
 )
 
 unified_itc = Dict(
@@ -208,6 +208,7 @@ no_policy = Dict(
 
 
 # list of dictionaries with policies to test
+# uncomment the scenarios you want to run
 scenarios = [
     aggressive, 
     conservative, 
