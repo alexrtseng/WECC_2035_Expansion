@@ -147,7 +147,7 @@ linked_cap_trade_80 = Dict(
     "itc_values" => [0, 0, 0, 0, 0, 0],
     "ptc_values" => [0, 0, 0, 0, 0, 0],
     "cap_trade_clusters" => [[1, 2, 3, 4, 5, 6]],
-    "cap_trade_values" => [(z1 + z2 + z3 + z4 + z5 + z6) * 0.8] 
+    "cap_trade_values" => [(1.674362809181926e8) * 0.2] 
 )
 
 linked_cap_trade_100 = Dict(

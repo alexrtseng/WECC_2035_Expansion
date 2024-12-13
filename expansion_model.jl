@@ -325,6 +325,9 @@ function solve_cap_expansion(generators, G,
         # (12c) Reservoir level, normal
         cReservoir[t in INTERIORS, g in HYDRO],
         vRESERVOIR[t, g] == vRESERVOIR[t-1, g] + vFILL[t, g] - vGEN[t, g]
+        # (12d) Reservoir level, wrapping
+        cReservoirWrap[t in STARTS, g in HYDRO],
+        vRESERVOIR[t, g] == vRESERVOIR[t+hours_per_period-1, g] + vFILL[t, g] - vGEN[t, g]
     end)
 
     # Carbon Policy constraints
@@ -332,12 +335,12 @@ function solve_cap_expansion(generators, G,
         # 13 RPS policy constraint
         cRPS[z in RPS_POLICY],
         sum(vGEN[t, r] * sample_weight[t] for t in T, r in intersect(G_ZONES[z], RPS)) >=
-        (sum(vGEN[t, g] * sample_weight[t] for t in T, g in G_ZONES[z]) * rps_values[z])
+        (sum(vGEN[t, g] * sample_weight[t] for t in T, g in setdiff(G_ZONES[z], STOR)) * rps_values[z])
 
         # 14 CES policy constraint
         cCES[z in CES_POLICY],
         sum(vGEN[t, r] * sample_weight[t] for t in T, r in intersect(G_ZONES[z], CES)) >=
-        (sum(vGEN[t, g] * sample_weight[t] for t in T, g in G_ZONES[z]) * ces_values[z])
+        (sum(vGEN[t, g] * sample_weight[t] for t in T, g in setdiff(G_ZONES[z], STOR)) * ces_values[z])
 
         # 15 Cap and Trade policy constraint
         cCAP_TRADE[m in CAP_TRADE_MARKETS],
@@ -549,4 +552,3 @@ function write_results(generator_results,
     CSV.write(joinpath(outpath, "dual_results.csv"), dual_results)
 
 end
-
