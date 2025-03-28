@@ -2,7 +2,7 @@
 *Alex Tseng*
 
 ## Explanation
-This project is complimentary to the corresponding paper submitted for the MAE 573 final project. The goal is to test the cost and emissions impacts of non-uniform carbon policy within the same interconnection regions. 
+The goal of this project is to test the cost and emissions impacts of non-uniform carbon policy within the same interconnection regions. 
 
 ## Overview
 The model itself can be viewed in expansion_model.jl. This model follows that explained in lab1 with modification to handle the WECC 6-zone data and additional parameter inputs to create constraints and objective function motifications to represent the given carbon policies. 
